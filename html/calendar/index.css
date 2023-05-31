@@ -1,0 +1,85 @@
+nav {
+  /* font-size:12px; */
+  margin-bottom: 3px;
+}
+table.dataTable {
+  background: #1f1f1f;
+  color: #dedede;
+  padding: 0;
+}
+
+table.dataTable>thead {
+  display: block;
+}
+
+table.dataTable>tbody::-webkit-scrollbar {
+  display: none;
+}
+
+table.dataTable>tbody {
+  display: block;
+  /* background-image: radial-gradient(circle, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  background-size: 92px 92px;
+  background-position: -92px -92px; */
+  /* background-repeat: no-repeat; */
+  /* height: 276px; */
+  /* height: 266px; */
+  /* height: 500px; */
+  overflow: auto;
+}
+
+table.dataTable>tbody>tr>td,
+table.dataTable>thead>tr>th {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  box-sizing: content-box;
+  /* border: 1px solid gray; */
+  vertical-align: middle;
+  /* background-color: gray; */
+  /* background-clip: content-box; */
+  padding: 2px;
+}
+
+table.dataTable>tbody>tr>td>label {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+table.dataTable>tbody>tr>td>label>span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  line-height: 0;
+  padding: 20px 0;
+}
+
+/* table.dataTable > tbody > tr > td > label > span:hover{
+box-shadow: 0 0  2px 2px #FFFFFF;
+}
+
+table.dataTable > tbody > tr > td > label > input:checked + span{
+  border: 2px solid #000000;
+  padding: 18px 0;
+} */
+/* :not(.active) */
+table.dataTable>tbody>tr>td>label>span:hover {
+  box-shadow: 0 0 2px 2px #797979;
+  /* border: 1px solid #797979; */
+}
+
+table.dataTable>tbody>tr>td>label>input:checked+span {
+  border: 2px solid #0666b2;
+  padding: 18px 0;
+}
+.active {
+  background: #0078d7;
+}
+/* .active:hover {
+  border: 2px solid #797979;
+} */
+.light {
+  color: rgb(114, 114, 114)
+}

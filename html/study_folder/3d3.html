@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 500px;
+        }
+        .box {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 100px auto;
+            /* background-color: pink; */
+            transform-style: preserve-3d;
+            transition: all 1s;
+            animation: rt 2s linear infinite;
+        }
+        .box:hover {
+            animation-play-state: paused;
+        }
+        @keyframes rt {
+            from {
+                transform: rotateY(0);
+            }
+            to {
+            transform: rotateY(360deg);
+            }
+        }
+        .box div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+        }
+        .box div:nth-child(1) {
+            background-color: red;
+        }
+        .box div:nth-child(2) {
+            background-color: green;
+            transform: rotateY(90deg);
+        }
+        .box div:last-child {
+            background-color: blue;
+            transform: rotateX(90deg);
+        }
+        /* div.test {
+            width: 400px;
+            height: 300px;
+            background-color: #fff;
+            transform: translate(50%,0,0);
+            transform-style: preserve-3d;
+
+        } */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!-- <div class="test"></div> -->
+</body>
+</html>

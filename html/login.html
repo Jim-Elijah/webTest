@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>登录</title>
+	<style>
+		* {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            /* background: linear-gradient(#141e30, #243b55); */
+        }
+
+		.login-box {
+			width: 400px;
+			height: 300px;
+			/* background-color: rgb(110, 110, 110); */
+			/* background: rgba(0, 0, 0, .5);  */
+		}
+		.login-box div {
+			margin: 0;
+			padding: 0;
+		}
+		.login-box input {
+			/* display: inline-block; */
+			width: 50%;
+			margin: 10px;
+		}
+	</style>
+	<script src="../js/myAjax2.js"></script>
+	<script src="../jquery-3.4.1.js"></script>
+</head>
+
+<body>
+	<form class="login-box" action="" method="POST">
+		<div>
+			<input type="text" id="usrName" name="usrName"  placeholder="用户名" autocomplete="on">
+		</div>
+		<div>
+			<input type="password" id="pswd" placeholder="密码" name="pswd">
+		</div>
+		<div>
+			<button type="submit">登录</button>
+		</div>
+	</form>
+
+	<!-- <script>
+		$(function () {
+			// console.log(oBtn);
+			$("input[value='登录']").click(function (ev1) {
+				var name = $("input[name='usrName']").val();
+				var pswd = $("input[name='usrPswd']").val();
+				ajax({
+					url: "../php/login.php",
+					data: {
+						"usrName": name,
+						"usrPswd": pswd
+					},
+					timeout: 3000,
+					type: "post",
+					success: function (xhr) {
+						alert(xhr.responseText);
+					},
+					error: function (xhr) {
+						alert("请求失败");
+					}
+				});
+			});
+		});
+	</script> -->
+</body>
+
+</html>

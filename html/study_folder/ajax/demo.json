@@ -1,0 +1,9 @@
+{
+    "name": "will",
+    "job": "programmer",
+    "salary": "9999",
+    "site": {
+        "siteName": "php中文网",
+        "domain": "www.php.cn"
+    }
+}

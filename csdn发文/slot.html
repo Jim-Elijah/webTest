@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>slot</title>
+  <script src="http://vuejs.org/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <child>
+      <!-- <template #header>
+        <p>具名插槽header</p>
+      </template>
+      <template #footer>
+        <p>具名插槽footer</p>
+      </template> -->
+      <p slot="header">具名插槽header</p>
+      <p slot="footer">具名插槽footer</p>
+    </child>
+    <hr>
+    <scoped-slot :url='url'>
+      <template v-slot='props'>
+        <!-- <h3>{{ props}}</h3>
+        <h3>{{ props.item}}</h3> -->
+        <p>{{ props.item.title}}</p>
+        <p>{{ props.item.subTitle}}</p>
+      </template>
+    </scoped-slot>
+  </div>
+  <script>
+    Vue.component('child', {
+      // 默认值显示'默认值的匿名插槽' ，即父组件不传内容时
+      template: `<div>
+                      <slot>默认值的匿名插槽</slot>  
+                      <slot name='header'></slot>
+                      <slot name='footer'></slot>
+                  </div>`
+    });
+    Vue.component('scopedSlot', { // scoped-slot
+      props: ['url'],
+      data() {
+        return {
+          website: {
+            'url': 'http://wangEditor.com/',
+            'title': 'wangEditor',
+            'subTitle': '轻量级富文本编辑器'
+          }
+        }
+      },
+      template: `<div>
+                    <a :href="url">
+                      <slot :item='website'>default value</slot>
+                    </a>
+                  </div>`
+    });
+    var app = new Vue({
+      el: '#root',
+      data: {
+        url: 'http://www.baidu.com'
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<div id="app">
+  <p>{{name}}</p>
+  <child v-model='name'></child>
+</div>
+
+<body>
+  <script>
+    Vue.component('child', {
+      props: ['val'],
+      template: `<input :value="val" @input="$emit('input', $event.target.value)">`,
+    });
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        name: 'jsdev'
+      }
+    })
+  </script>
+</body>
+
+</html>

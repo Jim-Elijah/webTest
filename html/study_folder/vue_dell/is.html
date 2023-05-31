@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+       <table>
+            <tr is="row"></tr>
+            <tr is="row"></tr>
+            <tr is="row"></tr>
+       </table>
+       <hr>
+       <couter ref='one' @change='handleChange'></couter>
+       <couter ref='two' @change='handleChange'></couter>
+       {{total}}
+    </div>
+    <script>
+        Vue.component('couter', {
+            data () {
+                return {
+                    number: 0
+                }
+            },
+            template: `<div>{{number}} <input type='button' @click='handleClick' value='add' /></div>`,
+            methods: {
+                handleClick: function () { 
+                    console.log(this);
+                    this.number++;
+                    this.$emit('change');
+                 }
+            }
+        })
+        Vue.component('row', {
+            data () {
+                return {
+                    content: 'this is a row'
+                }
+            },
+            template: `<tr><td>{{content}}</td></tr>`
+        })
+        var vm = new Vue({ 
+			el: '#root',
+			data: {
+                total: 0
+            },
+            methods: {
+                handleChange: function ( ) {  
+                    this.total = this.$refs.one.number + this.$refs.two.number;
+                }
+            }
+		})
+    </script>
+</body>
+</html>

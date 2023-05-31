@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex col</title>
+    <style>
+        .col_con {
+            display: flex;
+            /* flex-direction: column; */
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column-reverse; */
+            width: 500px;
+            height: 160px;
+            background-color: rgb(123, 141, 89);
+            /* background-color: rgb(241, 242, 246); */
+            margin-bottom: 20px;
+        }
+
+        /* .col_con div {
+            height: 50px;
+        } */
+        /* align-item */
+        .col_start {
+            align-items: flex-start;
+        }
+
+        .col_center {
+            align-items: center;
+        }
+
+        .col_end {
+            align-items: flex-end;
+        }
+
+        .col_baseline {
+            align-items: baseline;
+        }
+
+        .col_stretch {
+            /* 默认值 项目未设置高度或设为auto时有效 */
+            align-items: stretch;
+        }
+
+        /* order  */
+        .order-1 {
+            order: -1;
+        }
+
+        .order1 {
+            order: 1;
+        }
+
+        .order2 {
+            order: 2;
+        }
+
+        /* flex-flow */
+        .col_grow3 {
+            flex-flow: 3;
+        }
+        .col_grow2 {
+            flex-grow: 2;
+        }
+        .col_grow1 {
+            flex-grow: 1;
+        }
+        /* flex-shrink */
+        .shrink {
+            /* width: 600px; */
+            border: 2px solid none;
+        }
+        .shrink div {
+            width: 300px;
+            flex-basis: 600px;
+        }
+        .shrink .shrink1 {
+            flex-shrink: 1;
+        }
+        .shrink .shrink2 {
+            flex-shrink: 2;
+        }
+        .shrink .shrink3 {
+            flex-shrink: 3;
+        }
+        /* flex-basis */
+        .basis400 {
+            flex-basis: 400px;
+        }
+        .basis200 {
+            flex-basis: 200px;
+        }
+        /* align-self */
+        .col_self {
+            align-self: center;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="col_con col_start">
+        <div class="red">flex 1</div>
+        <div class="green">flex 2</div>
+        <div class="blue">flex 3</div>
+    </div>
+    <div class="col_con col_center">
+        <div class="red">flex 1</div>
+        <div class="green">flex 2</div>
+        <div class="blue">flex 3</div>
+    </div>
+
+    <div class="col_con col_end">
+        <div class="red">flex 1</div>
+        <div class="green">flex 2</div>
+        <div class="blue">flex 3</div>
+    </div>
+    <div class="col_con col_baseline">
+        <div class="red">flex</div>
+        <div class="green" style="font-size: 30px">flex 2</div>
+        <div class="blue" style="font-size: 30px; text-decoration: underline">flex 3</div>
+    </div>
+    <div class="col_con">
+        <div class="red">flex 1</div>
+        <div class="green">flex 2</div>
+        <div class="blue">flex 3</div>
+    </div>
+    <hr>
+    <hr>
+    <div class="col_con">
+        <div class="red order1">flex 1</div>
+        <div class="green order-1">flex 2</div>
+        <div class="blue">flex 3</div>
+        <div class="red order-1">flex 4</div>
+        <div class="green order2">flex 5</div>
+        <div class="blue order1">flex 6</div>
+    </div>
+    <div class="col_con">
+        <div class="red">flex 1</div>
+        <div class="green col_grow2">flex 2</div>
+        <div class="red col_grow1">flex 4</div>
+    </div>
+    <div class="col_con shrink">
+        <div class="red shrink3">flex 1</div>
+        <div class="green shrink2">flex 2</div>
+        <div class="blue shrink1">flex 3</div>
+    </div>
+    <div class="col_con">
+        <div class="red basis400">flex 1</div>
+        <div class="green">flex 2</div>
+        <div class="blue basis200">flex 3</div>
+    </div>
+    <div class="col_con">
+        <div class="red">flex 1</div>
+        <div class="green col_self">flex 2</div>
+        <div class="blue">flex 3</div>
+    </div>
+</body>
+
+</html>

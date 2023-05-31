@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>父子组件通信</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <counter :count='c' @change='handleChange'>num1：</counter>
+    <counter :count='c' @change='handleChange'>num2：</counter>
+    <p>sum：{{total}}</p>
+    <p>c: {{c}}</p>
+    <button @click='changeCount'>count加2</button>
+  </div>
+  <script>
+    Vue.component('counter', {
+      props: ['count'],
+      data() {
+        return {
+          number: this.count
+        }
+      },
+      template: `<div @click='handleClick'>
+                  <slot></slot>
+                  {{number}}
+            </div>`,
+      methods: {
+        handleClick: function () {
+          this.number++;
+          this.$emit('change', 1)
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        total: 0,
+        c: 0
+      },
+      methods: {
+        handleChange: function (step) {
+          this.total += step
+        },
+        changeCount: function () { 
+          this.c += 2;
+         }
+      }
+    })
+  </script>
+</body>
+
+</html>

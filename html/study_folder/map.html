@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .map {
+            position: relative;
+            width: 1171px;
+            height: 841px;
+            background: url(../../images/ani.png) no-repeat;
+            margin: 0 auto;
+        }
+
+        .map .city {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            color: #fff;
+        }
+        .map .tb {
+            top: 510px;
+            right: 50px;
+        }
+        .map .city .dotted {
+            width: 8px;
+            height: 8px;
+            background-color: #09f;
+            border-radius: 50%;
+        }
+        .map .city div[class^='pulse'] {
+            position: absolute;
+            top: 50px;
+            left: 40px;
+            transform: translate(-50%,-50%);
+            width: 8px;
+            height: 6px;
+            box-shadow: 0 0 12px #009dfd;
+        }
+        .map .dotted {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 50px;
+            right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map"></div>
+    <div class="city">
+        <div class="dotted">a</div>
+        <div class="pulse1"></div>
+        <div class="pulse2"></div>
+        <div class="pulse3"></div>
+    </div>
+</body>
+
+</html>

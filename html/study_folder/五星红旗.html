@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transform</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      position: relative;
+      width: 180px;
+      height: 120px;
+      background: red;
+    }
+
+    .container::before {
+      content: '';
+      display: block;
+      height: 40px;
+      width: 40px;
+      /* visibility: hidden; */
+      background-color: rgb(255, 255, 0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+
+</html>

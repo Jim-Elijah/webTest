@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+</head>
+
+<body> 
+  <div id="div1" class="divClass" title="divTitle">测试</div>
+</body>
+<script>
+  let div = document.getElementById("div1");
+  div.aNewProp = "newProp"; //设置自定义property属性
+  div.setAttribute('title1', 'theTitle1');  //设置自定义attribute属性
+  div.title = "theTitle"; //修改DOM默认属性
+  div.setAttribute("class", "theClass"); //修改DOM默认属性
+</script>
+
+</html>

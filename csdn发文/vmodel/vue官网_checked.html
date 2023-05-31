@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="http://vuejs.org/js/vue.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{isChecked}} </p>
+    <base-checkbox v-model="isChecked"></base-checkbox>
+  </div>
+  <script>
+    Vue.component('base-checkbox', {
+      model: {
+        prop: 'checked',
+        event: 'change1'  //可以不写event，下面改为emit input事件
+      },
+      props: {
+        checked: Boolean
+      },
+      template: `<input type="checkbox" :checked="checked" @change="$emit('change1', $event.target.checked)">`
+    })
+    var app = new Vue({
+      el: '#app',
+      data: {
+        isChecked: true
+      }
+    })
+  </script>
+</body>
+
+</html>

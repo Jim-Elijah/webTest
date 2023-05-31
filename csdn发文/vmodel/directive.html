@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>directive</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <input v-model='content'></input>
+    <input type="text" v-slice="content"> {{content}}
+  </div>
+
+  <script>
+    Vue.directive("slice", {
+      bind(el, bindings, vnode) {
+        var context = vnode.context;
+        el.value = context[bindings.expression];
+        console.log(el, bindings, vnode)
+        el.oninput = e => {
+          var value = e.target.value;
+          context[bindings.expression] = value;
+        }
+      },
+      update: function (el, binding, vNode, oldVNode) {
+        if (el.value !== binding.value) {
+          el.value = binding.value
+        }
+      }
+    })
+
+    new Vue({
+      el: "#app",
+      data: {
+        content: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

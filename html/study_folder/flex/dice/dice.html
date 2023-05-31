@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex box--dice</title>
+    <style>
+        .box {
+            height: 120px;
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(38, 38, 38);
+        }
+        .common {
+            height: 80px;
+            width: 80px;
+            border-radius: 10px;
+            display: flex;
+            background-color: rgb(231, 231, 231)
+            /* box-shadow: 10px 10px 5px #888888; */
+        }
+        .first_face {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            width: 30%;
+            height: 30%;
+            border-radius: 50%;
+            margin: 2px;
+            background-color: rgb(51, 51, 51);
+        }
+        .second_face {
+            justify-content: space-between;
+        }
+        .second_face span:last-child {
+            align-self: flex-end;
+        }
+        .third_face {
+            justify-content: space-between;
+        }
+        .third_face span:nth-child(2) {
+            align-self: center;
+        }
+        .third_face span:nth-child(3) {
+            align-self: flex-end;
+        }
+        .forth_face {
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-content: space-between;
+
+        }
+        .fifth_face {
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-content: space-between;
+        }
+        .fifth_face span:nth-child(2) {
+            align-self: center;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="first_face common">
+            <span class="item"></span>
+        </div>
+    </div>
+    <hr> <hr>
+    <div class="box">
+        <div class="second_face common">
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+    </div>
+    <hr> <hr>
+    <div class="box">
+        <div class="third_face common">
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+    </div>
+    <hr> <hr>
+    <div class="box">
+        <div class="forth_face common">
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+    </div>
+    <hr> <hr>
+    <div class="box">
+        <div class="fifth_face common">
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+    </div>
+</body>
+
+</html>

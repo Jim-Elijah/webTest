@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>自定义组件v-model，默认参数和事件</title>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<div id="app">
+  <h2>自定义组件中，使用默认参数和事件实现v-model</h2>
+  <h4>{{val}}</h4>
+  <child v-model='val'></child>
+  <button @click="changeVal">change参数</button>
+</div>
+
+<body>
+  <script>
+    Vue.component('child', {
+      props: ['val'], // 只能用value
+      data() {
+        return {
+          testVal: this.val
+        }
+      },
+      watch: {
+        val(propsVal) {
+          this.testVal = propsVal
+        }
+      },
+      template: `<input :value="testVal" @input="$emit('input', $event.target.value)" />`
+    });
+    var app = new Vue({
+      el: "#app",
+      data: {
+        val: '参数必须是value'
+      },
+      methods: {
+        changeVal() {
+          this.val = 'Bill';
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

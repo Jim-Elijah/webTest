@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-size: 20px;
+    }
+    body {
+      /* 最小宽度设置在body中，设置在container中页面缩小时有bug */
+      /* 最小宽度=左右固定宽度和+左边相对定位的移动的距离 */
+      min-width: 600px; 
+    }
+
+    .header,
+    .footer {
+      background-color: gray;
+    }
+
+    .container {
+      /* 内容区文字被header挡住 */
+      padding: 0 200px;
+      /* margin: 0 200px; */
+    }
+
+    .left,
+    .middle,
+    .right {
+      float: left;
+    }
+
+    .left {
+      width: 200px;
+      margin-left: -100%;
+      position: relative;
+      right: 200px;
+      background-color: green;
+    }
+
+    .middle {
+      width: 100%;
+      background-color: red;
+    }
+
+    .right {
+      width: 200px;
+      /* margin-right: -200px; */
+      /* 上面那行可以用定位+margin-left代替 */
+      margin-left: -200px;
+      position: relative;
+      left: 200px;
+      background-color: blue;
+    }
+    /* 对footer设置清除浮动 */
+    .footer {
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <p>header</p>
+  </div>
+  <div class="container" class="clearfix">
+    <div class="middle">middle</div>
+    <div class="left">这是left</div>
+    <div class="right">这是right</div>
+  </div>
+  <div class="footer">
+    <p>footer</p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calendar</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div id="dateDiv">
+    <nav>
+      <span>
+        <button id="lastYear">◀</button>
+        <label id="year"></label><label>年</label>
+        <button id="nextYear">▶</button>
+      </span>
+      <span>
+        <button id="lastMonth">◁</button>
+        <label id="month"></label><label>月</label>
+        <button id="nextMonth">▷</button>
+      </span>
+      <button id="backToday">回到今天</button>
+      <span id='today'></span>
+    </nav>
+    <table class="dataTable">
+      <!-- 定义表头信息 -->
+      <thead>
+        <tr>
+          <th>日</th>
+          <th>一</th>
+          <th>二</th>
+          <th>三</th>
+          <th>四</th>
+          <th>五</th>
+          <th>六</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+  </div>
+</body>
+<script src="./cal.js"></script>
+
+</html>

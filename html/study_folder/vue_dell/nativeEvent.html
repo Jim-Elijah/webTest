@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <counter @click='handleClick'></counter>
+        <counter2 @click.native='handleClick'></counter2>
+    </div>
+    <script>
+        Vue.component('counter', {
+            template: `<div @click='handleChildClick'>child</div>`,
+            methods: {
+                handleChildClick: function ( ) {
+                    alert('child');
+                    this.$emit('click')
+                  }
+            }
+        })
+        Vue.component('counter2', {
+            template: `<div>child</div>`
+        })
+        var vm = new Vue({
+            el: '#app',
+            methods: {
+                handleClick: function () { 
+                     alert('native')
+                 }
+            }
+        })
+    </script>
+</body>
+</html>

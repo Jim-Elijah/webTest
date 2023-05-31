@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>display、visibility、opacity对比</title>
+  <style>
+    .parent {
+      border: 1px solid red;
+    }
+
+    .display {
+      width: 200px;
+      height: 200px;
+      background: green;
+      display: none;
+    }
+
+    .visibility {
+      width: 200px;
+      height: 200px;
+      background: blue;
+      visibility: hidden;
+    }
+    .show {
+      background: gray;
+      visibility: visible;
+    }
+    .opacity {
+      width: 200px;
+      height: 200px;
+      background: #4f4;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="display">display:none</div>
+    <div class="visibility">visibility:hidden
+      <div class="visibility show">visibility:show</div>
+    </div>
+    <div class="opacity">opacity:0</div>
+  </div>
+</body>
+
+</html>

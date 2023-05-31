@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命周期</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="" id="app">
+        <div>
+            {{msg}}
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: "你好，我是初始值"
+            },
+            beforeCreate: function () {
+                console.log("beforeCreate", this.$el, this.$data, this.msg);
+                // this.$el >> undefined ; this.$data >> undefined ; this.msg >> undefined 
+            },
+            created: function () {
+                console.log("created", this.$el, this.$data, this.msg);
+                // this.$el >> undefined ; this.$data >> 有值 ; this.msg >> 已被初始化 "你好，我是初始值" 
+            },
+            beforeMount: function () {
+                console.log("beforeMount", this.$el, this.$data, this.msg);
+                // this.$el >> 有值 ; this.$data >> 有值 ; this.msg >> 已被初始化 "你好，我是初始值"
+                // <p>{{msg}}</p> 页面调用的东西依然是代码状态  
+            },
+            mounted: function () {
+                console.log("mounted", this.$el, this.$data, this.msg);
+                // this.$el >> 有值 ; this.$data >> 有值 ; this.msg >> 已被初始化 "你好，我是初始值"
+                // <p>你好，我是初始值</p> 已挂载 页面调用的东西渲染出数据
+            },
+
+            // 某个地方修改值后触发beforeUpdate、updated；如 vm.msg = '你好，我更新了'
+            beforeUpdate: function () { //数据已更新调用，发生在虚拟 DOM 打补丁之前，DOM 未更新时。
+                console.log("beforeUpdated", this.$el, this.$data, this.msg);
+                // this.$el >> 有值 ; this.$data >> 有值 ; this.msg >> "你好，我更新了"
+
+                console.log(this.$el.innerHTML); //"你好，我是初始值"
+                console.log(this.$el); //展开和updated一样都是更新后的 因为当点开下面的箭头展开具体内容时，显示的是该指针指向对象的当前内容，因此看来，两个都一样。
+
+            },
+            updated: function () {
+                console.log("updated", this.$el, this.$data, this.msg);
+                // this.$el >> 有值 ; this.$data >> 有值 ; this.msg >> "你好，我更新了"
+
+                console.log(this.$el.innerHTML); //'你好，我更新了'
+                console.log(this.$el); //更新后的
+
+            },
+
+            //例如触发 app.$destroy(); 销毁vm实例与DOM之间的关联
+            //beforeDestroy钩子函数在实例销毁之前调用。在这一步，实例仍然完全可用。
+            //destroyed后，DOM所有东西仍然存在，实例指示的所有东西都会解绑定，所有的事件监听器会被移除， 不过后续就不再受vue控制。
+            beforeDestroy: function () {
+                console.log("beforeDestroy", this.$el, this.$data, this.msg);
+            },
+            destroyed: function () {
+                console.log("destroyed",this.$el, this.$data, this.msg);
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+* {
+  font-family: Arial;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body {
+  min-width: 800px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+/* header */
+header {
+  width: 100%;
+  height: 80px;
+  background: #000000;
+  color: white;
+  position: relative;
+  left: 0px;
+  line-height: 80px;
+}
+
+header>a img {
+  position: absolute;
+  left: 60px;
+  margin: 5px 0px;
+}
+
+header>nav {
+  position: absolute;
+  right: 60px;
+}
+
+/* header:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  content: '';
+  background: #d6d6d6;
+} */
+
+/* nav */
+nav li {
+  float: left;
+}
+nav li a:hover,
+nav li a.active {
+  padding-bottom: 12px;
+  border-bottom: 2px solid yellow;
+}
+nav li a {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  /* margin: 0px 20px; */
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+
+nav li:nth-child(1) {
+  background: #423a8d;
+}
+
+nav li:nth-child(2) {
+  background: #017dc7;
+}
+
+nav li:nth-child(3) {
+  background: #70ad15;
+}
+
+nav li:nth-child(4) {
+  background: #eead00;
+}
+
+nav li:nth-child(5) {
+  background: #e17300;
+}
+
+nav li:nth-child(6) {
+  background: #cf0011;
+}
+
+/* banner */
+.banner {
+  height: 540px;
+  position: relative;
+  left: 0px;
+  background: #eaeaea;
+}
+
+.banner img {
+  position: absolute;
+  top: 50%;
+}
+
+.banner img:nth-child(1) {
+  width: 960px;
+  height: 460px;
+  z-index: 3;
+  left: 50%;
+  margin-top: -230px;
+  margin-left: -480px;
+}
+
+.banner img:nth-child(2) {
+  width: 610px;
+  height: 300px;
+  z-index: 1;
+  left: 10px;
+  margin-top: -150px;
+}
+
+.banner img:nth-child(3) {
+  width: 610px;
+  height: 300px;
+  z-index: 2;
+  right: 10px;
+  margin-top: -150px;
+}
+
+/* main */
+.main {
+  width: 1200px;
+  height: 480px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin: 0 auto;
+  /* margin: 34px auto 0; */
+  /* background: rgb(29, 26, 26); */
+  margin-top: 20px;
+}
+
+/* aside */
+.main aside {
+  width: 450px;
+  float: left;
+  position: relative;
+  left: 0;
+  margin-top: 20px;
+}
+
+.main aside h1 {
+  position: absolute;
+  left: -80px;
+}
+
+samp {
+  font-size: 24px;
+  color: #727272;
+}
+
+.main aside dl {
+  height: 55px;
+  margin-top: 45px;
+  position: relative;
+  left: 0px;
+}
+
+.main aside dl dt {
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.main aside dl dd:last-child {
+  position: absolute;
+  bottom: -8px;
+}
+
+.main aside dl img {
+  position: absolute;
+  left: -80px;
+  top: 0px;
+}
+
+/* article */
+.main article {
+  width: 730px;
+  float: right;
+  margin-top: 20px;
+}
+
+.main article p {
+  margin-top: 20px;
+}
+
+.main article img {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.parent {
+  clear: both;
+}
+
+.clearfix::after {
+  content: '.';
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+  /*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+}
+
+/* footer */
+footer .container {
+  height: 65px;
+  background: black;
+  color: white;
+  line-height: 65px;
+  position: relative;
+  left: 0;
+}
+
+.container p {
+  float: left;
+  font-size: 16px;
+  position: absolute;
+  left: 200px;
+}
+
+.container span {
+  float: right;
+  position: absolute;
+  right: 200px;
+  top: 13px;
+}
+
+.container span img {
+  opacity: .7;
+}
+
+.container span img:hover {
+  opacity: 1;
+}

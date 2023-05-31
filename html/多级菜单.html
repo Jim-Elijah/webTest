@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多级菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            color: white;
+        }
+
+        .list {
+            width: 300px;
+            height: 300px;
+        }
+
+        .list ul {
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .list ul>li {
+            position: relative;
+            left: 0px;
+        }
+
+
+        .list ul>li>a {
+            background-color: black;
+            display: block;
+            width: 200px;
+            border-bottom: 1px dotted #fff;
+        }
+
+        .list ul>li>ol {
+            background-color: rgb(102, 102, 102);
+            position: absolute;
+            top: 0px;
+            left: 200px;
+            width: 200px;
+            display: none;
+
+        }
+
+        .list ul>li>ol>li {
+            border-bottom: 1px dotted #fff;
+        }
+
+        .list ul>li>a:hover~ol {
+            display: block;
+        }
+
+        .list ul>li:last-child a {
+            border: none;
+        }
+
+        /* 注意权重 */
+        .list ul>li>ol li:last-child {
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="list">
+        <ul>
+            <li>
+                <a href="#">前端开发</a>
+                <ol>
+                    <li><a href="#">HTML/CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Vue.js</a></li>
+                    <li><a href="#">React.js</a></li>
+                    <li><a href="#">小程序</a></li>
+                    <li><a href="#">Node.js</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#">后端开发</a>
+                <ol>
+                    <li><a href="#">Java</a></li>
+                    <li><a href="#">SpringBoot</a></li>
+                    <li><a href="#">SprintCloud</a></li>
+                    <li><a href="#">Python</a></li>
+                    <li><a href="#">爬虫</a></li>
+                    <li><a href="#">PHP</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#">移动开发</a>
+                <ol>
+                    <li><a href="#">Android</a></li>
+                    <li><a href="#">iOS</a></li>
+                    <li><a href="#">React native</a></li>
+                    <li><a href="#">WEEX</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#">算法/数学</a>
+                <ol>
+                    <li><a href="#">算法与数据结构</a></li>
+                    <li><a href="#">数学</a></li>
+                    <li><a href="#">算法</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#">前沿技术</a>
+                <ol>
+                    <li><a href="#">微服务</a></li>
+                    <li><a href="#">区块链</a></li>
+                    <li><a href="#">以太坊</a></li>
+                    <li><a href="#">人工智能</a></li>
+                    <li><a href="#">机器学习</a></li>
+                    <li><a href="#">深度学习</a></li>
+                    <li><a href="#">计算机视觉</a></li>
+                    <li><a href="#">自然语言处理</a></li>
+                    <li><a href="#">数据分析/挖掘</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#">运维/测试</a>
+                <ol>
+                    <li><a href="#">运维</a></li>
+                    <li><a href="#">自动化运维</a></li>
+                    <li><a href="#">运维工具</a></li>
+                    <li><a href="#">中间件</a></li>
+                    <li><a href="#">Linux</a></li>
+                </ol>
+            </li>
+    </div>
+</body>
+
+</html>
+<!-- 
+一、整体要求：
+
+1、要求页面整洁、美观，与提供的页面效果图、结构保持一致，文字、背景的颜色不统一要求
+
+2、要求HTML代码和CSS代码书写、命名符合规范
+
+二、 具体要求
+
+1、鼠标移入一级菜单时，二级菜单显示，鼠标移出一级菜单时，二级菜单隐藏
+
+（1）元素显示使用display:block属性，隐藏使用display:none属性
+
+2、二级菜单显示在一级菜单的右侧
+
+（1）给一级菜单和二级菜单共同的父元素设置相对定位（position: relative）
+
+（2）给二级菜单设置绝对定位（position: absolute），并设置左侧位移（left）的值为一级菜单的宽度，上放位移（top）的值为0
+
+3、一级菜单的文字和二级菜单的文字水平居中显示
+
+4、一级菜单的文字和二级菜单的文字垂直居中显示
+
+5、一级菜单的每一项和二级菜单的每一项有下边框，边框为点线（dotted）
+
+6、一级菜单的最后一项和二级菜单的最后一项没有下边框（可以使用li:last-child选中最后一项，并设置border:none）
+
+7、每一个菜单项的宽度和高度不做统一要求 -->

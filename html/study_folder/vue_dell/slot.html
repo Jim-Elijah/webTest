@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slot</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <child>
+            <p slot="header">具名插槽header</p>
+            <p slot="footer">具名插槽footer</p>
+        </child>
+        <hr>
+        <hr>
+        <scoped-slot>
+            <template v-slot='props'>
+                <!-- <h3>{{ props}}</h3> -->
+                <!-- <h3>{{ props.item}}</h3> -->
+                <h3>{{ props.item.title}}</h3>
+                <li>{{ props.item.subTitle}}</li>
+            </template>
+        </scoped-slot>
+    </div>
+    <script>
+        Vue.component('child', {
+            // 默认值显示'默认值的匿名插槽' ，即父组件不传内容时
+            template: `<div>
+                            <slot>默认值的匿名插槽</slot>  
+                            <slot name='header'></slot>
+                            <slot name='footer'></slot>
+                        </div>`
+        });
+        Vue.component('scopedSlot', { // scoped-slot
+            data() {
+                return {
+                    website: {
+                        'url': 'http://wangEditor.com/',
+                        'title': 'wangEditor',
+                        'subTitle': '轻量级富文本编辑器'
+                    }
+                }
+            },
+           
+            template:`<div>
+                        <slot :item='website' >default value</slot>
+                      </div>`
+        });
+        var app = new Vue({
+            el: '#root',
+        })
+    </script>
+</body>
+</html>

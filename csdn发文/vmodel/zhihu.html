@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>zhihu</title>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <p>{{title}}</p>
+    <child v-model='title'></child>
+  </div>
+
+  <script>
+    let child = {
+      name: "MyComponents",
+      model: {
+        prop: 'modelVal', //指向props的参数名
+        event: 'change' //事件名称
+      },
+      props: {
+        modelVal: ''
+      },
+      template: `<input :value='modelVal' @input="$emit('change', $event.target.value)"></input>`,
+      data() {
+        return {
+          title: '123'
+        }
+      }
+    }
+    var app = new Vue({
+      el: "#app",
+      data: {
+        title: 'zhihu'
+      },
+      components: {
+        child
+      }
+    })
+  </script>
+</body>
+
+</html>

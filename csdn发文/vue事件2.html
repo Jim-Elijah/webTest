@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Vue自定义事件和原生事件</title>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+  <div id="root">
+    <!--  在这里绑定的是自定义事件，必须经过子组件的触发才能执行 -->
+    <child @click.native='handleClick'></child>
+  </div>
+  <script>
+    Vue.component('child', {
+      // 这里绑定的是原生事件 
+      template: '<div @click = "handleChildClick">click</div>',
+      methods: {
+        handleChildClick() {
+          alert('child click')
+        }
+      }
+    })
+
+    var vm = new Vue({
+      el: '#root',
+      methods: {
+        handleClick() {
+          alert('click')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

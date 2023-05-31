@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #fff;
+            perspective: 800px;
+        }
+        img {
+            display: block;
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background-color: pink;
+            transform-style: preserve-3d;
+            transition: all 1s;
+        }
+        img:hover {
+            /* transform: rotateX(60deg);
+            transform: rotateY(60deg); */
+            transform: rotate3d(1,1,0,60deg);
+
+        }
+    </style>
+</head>
+<body>
+    <img src="../../images/ani.png" alt="">
+</body>
+</html>

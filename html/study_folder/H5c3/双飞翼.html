@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>双飞翼布局-wechat group</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+/* 
+    body {
+      min-width: 500px;
+    } */
+    .header,
+    .footer {
+      background-color: rgb(123, 123, 123);
+    }
+    .left,
+    .container,
+    .right {
+      float: left;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    .main {
+      margin: 0 200px;
+      background-color: red;
+    }
+
+    .left {
+      width: 200px;
+      margin-left: -100%;
+      background-color: blue;
+    }
+
+    .right {
+      width: 200px;
+      margin-left: -200px;
+      background-color: green;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="header">header</div>
+  <div class="container">
+    <div class="main">center</div>
+  </div>
+  <div class="left">left</div>
+  <div class="right">right</div>
+  <div class="footer">footer</div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>get</button>
+    <ul>
+        <li>
+            <p id="name"></p>
+        </li>
+        <li>
+            <p id='job'></p>
+        </li>
+        <li>
+            <p id="salary"></p>
+        </li>
+        <li>
+            <p id="siteName"></p>
+        </li>
+        <li>
+            <p id="domain"></p>
+        </li>
+    </ul>
+</body>
+<script>
+    window.onload = function () {
+        document.getElementsByTagName("button")[0].onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", "demo.json", true);
+            xhr.send(null);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                        let data = JSON.parse(xhr.responseText);
+                        document.getElementById("name").innerHTML = data.name;
+                        document.getElementById("job").innerHTML = data.job;
+                        document.getElementById("salary").innerHTML = data.salary;
+                        document.getElementById("siteName").innerHTML = data.site.siteName;
+                        document.getElementById("domain").innerHTML = data.site.domain;
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+</html>

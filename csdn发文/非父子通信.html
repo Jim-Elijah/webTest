@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>非父子组件通信</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <child content="熊大"></child>
+    <child content="熊二"></child>
+  </div>
+  <script>
+    // bus 总线 进行非父子组件的传值
+    Vue.prototype.bus = new Vue()
+
+    Vue.component('child', {
+      props: ['content'],
+      data: function () {
+        return {
+          // 单向数据流，将参数保存为本地值
+          myContent: this.content
+        }
+      },
+      template: '<div @click="handleClick">{{myContent}}</div>',
+      methods: {
+        handleClick: function () {
+          this.bus.$emit('change', this.myContent)
+        }
+      },
+      mounted: function () {
+        let that = this
+        this.bus.$on('change', function (content) {
+          // 发送方和接受方不是一个人
+          if (that.myContent != content) {
+          console.log(that, this)
+
+            alert(`${that.myContent} get message from ${content}`)
+          }
+        })
+      }
+    })
+    var vm = new Vue({
+      el: "#root"
+    })
+  </script>
+</body>
+
+</html>

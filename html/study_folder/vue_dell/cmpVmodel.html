@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-model其实是将value和search绑定 -->
+        <input type="text" v-model='search'>
+        <span>{{search}}</span>
+        <hr>
+        <input type="text" :value='search' @input="search=$event.target.value">
+        <span>{{search}}</span>
+        <hr>
+        <custom-input v-model="search"></custom-input>
+        <span>{{search}}</span>
+        <hr>
+    </div>
+    <script>
+        Vue.component('custom-input', {
+            props: ['value'],
+            template: `<input :value="value" @input="$emit('input', $event.target.value)">`
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {
+                search: 'default'
+            }
+        })
+    </script>
+</body>
+
+</html>

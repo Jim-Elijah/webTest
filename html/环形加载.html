@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      border: 8px solid #ddd;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .circle {
+      position: absolute;
+      /* left: 0; */
+      /* top: 0; */
+      border: 8px solid #666;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    #circle {
+      transition: all 2s;
+      stroke-dasharray: 314, 314;
+      stroke-dashoffset: 314;
+    }
+
+    svg:hover #circle {
+      stroke-dashoffset: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <svg width="200" height="200" viewBox="0 0 200 200">
+    <circle cx="100" cy="80" r="50" fill="gray" stroke-width="5"
+      style="stroke-dasharray: 50px 260px; stroke-dashoffset: 70px" stroke="green" />
+  </svg>
+
+  <svg width="200" height="200" viewBox="0 0 200 200">
+    <circle cx="100" cy="80" r="50" fill="gray" stroke-width="5"
+      style="stroke-dasharray: 90px 210px; stroke-dashoffset: 60px" stroke="green" />
+  </svg>
+
+</body>
+
+</html>

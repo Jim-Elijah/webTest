@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- 这个版本的vue.js，方法三无法正常演示 -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script> -->
+  <!-- 不同的vue.js版本，影响方法三的结果，v2.5正常-->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <meta charset="utf-8">
+  <title>v-model原理与实现</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 默认情况下，v-model是将表单的属性value和data中的属性(此处是name)绑定(第一次绑定)，
+      表单内容value改变时再将name设置为value(第二次绑定) -->
+    <h3>v-model原理演示</h3>
+    <input type="text" v-model='name'>
+    <p>{{name}}</p>
+    <button @click='changeName'>changeName</button>
+    <hr>
+    <h3>v-model原理模拟</h3>
+    <input type="text" :value='name' @input="name=$event.target.value">
+    <hr>
+    <h3>实现自定义组件v-model(方法一：使用默认的value和input，推荐)</h3>
+    <child1 v-model="name"></child1>
+    <hr>
+    <h3>实现自定义组件v-model(方法二：使用自定义的属性和事件，推荐)</h3>
+    <child2 v-model="name"></child2>
+    <hr>
+    <h3>实现自定义组件v-model(方法三：使用默认的value和input，较繁琐)</h3>
+    <child3 v-model="name"></child3>
+    <hr>
+    <h3>实现自定义双向绑定指令v-mymodel</h3>
+    <input v-mymodel="name"></input>
+  </div>
+  <script>
+    // 方法一
+    Vue.component('child1', {
+      props: ['value'], // 只能用value, 否则报错
+      template: `<input :value="value" @input="$emit('input', $event.target.value)">`
+    })
+    // 方法二
+    Vue.component('child2', {
+      model: {
+        prop: 'val', // 对应props中的val
+        event: 'change1' //对应$emit的change1
+      },
+      props: ['val'],
+      template: `<input :value="val" @input="$emit('change1',$event.target.value)" />`
+    })
+    // 方法三
+    Vue.component('child3', {
+      props: ['value'], // 只能用value, 否则报错
+      data() {
+        return {
+          // 使用参数value初始化本第变量selfVal,value改变selfVal不会更新,因此需要watch value的变化 
+          selfVal: this.value
+        }
+      },
+      template: `<input :value="selfVal" @input="$emit('input', $event.target.value)" />`,
+      watch: {
+        // 注意：这里监听的是从父组件接受的参数value, value改变时修改selfVal
+        value(newValue) {
+          this.selfVal = newValue
+        }
+      }
+    })
+    // 自定义指令
+    Vue.directive('mymodel', (el, binding, vNode) => {
+      // 触发input更新的事件
+      let event = 'input';
+      // 有修饰符.lazy，则改为change事件
+      if (binding.modifiers.lazy) {
+        event = 'change'
+      }
+      // 监听事件，input的value改变后更新绑定的name
+      el.addEventListener(event, () => {
+        // vNode.context记录当前的上下文，即实例对象，binding.expression是绑定的表达式name
+        vNode.context[binding.expression] = el.value
+      })
+      // 数据改变更新视图
+      el.value = binding.value
+    })
+    var app = new Vue({
+      el: '#app',
+      data: {
+        name: 'v-model'
+      },
+      methods: {
+        changeName() {
+          this.name = 'Jack';
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

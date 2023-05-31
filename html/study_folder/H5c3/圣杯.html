@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯布局-wechat group</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    body {
+      min-width: 600px;
+    }
+    .header,
+    .footer {
+      background-color: rgb(164, 164, 164);
+    }
+
+    .left, 
+    .center,
+    .right {
+      float: left;
+    }
+    .container {
+      padding: 0 200px;
+    }
+    .center {
+      width: 100%;
+      background-color: red;
+    }
+    .left {
+      width: 200px;
+      margin-left: -100%;
+      position: relative;
+      right: 200px;
+      background-color: green;
+    }
+    .right {
+      width: 200px;
+      margin-right: -200px;
+      background-color: blue;
+    }
+    .footer {
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">header</div>
+  <div class="container">
+    <div class="center">center</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+  <div class="footer">footer</div>
+</body>
+</html>

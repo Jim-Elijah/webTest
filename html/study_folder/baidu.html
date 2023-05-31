@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度一下</title>
+    <base href="" target="_blank">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft Yahei";
+            box-sizing: border-box;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        a {
+            text-decoration: none;
+            color: #222;
+        }
+
+        a:hover {
+            color: rgb(150, 147, 12)
+        }
+
+        li {
+            list-style: none;
+            color: #222;
+        }
+
+        nav {
+            height: 40px;
+            /* background-color: pink; */
+        }
+
+        nav ul li {
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 20px;
+            margin-left: 30px;
+        }
+
+        nav ul.left li {
+            /* background-color: red; */
+            float: left;
+        }
+
+        nav ul.right li {
+            /* background-color: blue; */
+            float: right;
+        }
+
+        nav ul.right li:first-child {
+            margin-right: 30px;
+        }
+
+        .center {
+            width: 800px;
+            height: 260px;
+            margin: 0 auto;
+            /* background-color: yellow; */
+            position: relative;
+            top: 20px;
+        }
+        .center div {
+            margin-bottom: 20px;
+        }
+        .center div img {
+            width: 340px;
+            height: 150px;
+            /* background-color: pink; */
+            float: left;
+            position: absolute;
+            left: 50%;
+            margin-left: -170px;
+        }
+
+        .center .input {
+            width: 600px;
+            position: inherit;
+            /* background-color: green; */
+            top: 70%;
+            left: 50%;
+            margin-left: -300px;
+            padding-top: 20px;
+        }
+        .center .input input {
+            font-size: 22px;
+            height: 44px;
+            float: left;
+        }
+        .center .input input:first-child {
+            width: 480px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding-left: 10px;
+            
+        }
+        .center .input input:first-child:hover {
+            border: 2px solid #c4c7ce;
+        }
+        .center .input input:last-child {
+            width: 120px;
+            margin-left: -2px;
+            background-color: rgb(78, 110, 242);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="left">
+            <li><a href="#">hao123</a></li>
+            <li><a href="#">地图</a></li>
+            <li><a href="#">视频</a></li>
+            <li><a href="#">贴吧</a></li>
+            <li><a href="#">学术</a></li>
+            <li><a href="#">更多</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="#">登录</a></li>
+            <li><a href="#">设置</a></li>
+            <li><a href="#">抗击肺炎</a></li>
+        </ul>
+    </nav>
+    <div class="center">
+        <div>
+            <img src="../../images/baidu.png" alt="百度">
+        </div>
+        <div class="input">
+            <input type="text" name="search" id="search">
+            <input type="submit" name="" id="" value="百度一下">
+        </div>
+    </div>
+</body>
+
+</html>

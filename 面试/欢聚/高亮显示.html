@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高亮显示</title>
+</head>
+
+<body>
+
+  <script>
+    let response = {
+        // "sentences": ["京东⼤厦位于北京东路四环街，旁边是重庆⼈和药店，主要的顾客都是重庆⼈"],
+          "queries": {
+            "keyword": "京东", "color": "blue",
+            "keyword": "北京东路", color: "blue",
+            "keyword": "重庆⼈", color: "red",
+            "keyword": "⼈和药店", color: "blue"
+          }
+    }
+    let div = document.createElement('div');
+    let sentence = response.sentences;
+    let querys = response.queries
+  </script>
+</body>
+
+</html>

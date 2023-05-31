@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>nextTick</title>
+  <script src="http://vuejs.org/js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="testClick" ref="aa">{{testMsg}}</button>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        testMsg: "原始值"
+      },
+      methods: {
+        // testClick: function () {
+        //   let that = this;
+        //   that.testMsg = "修改后的值";
+        //   console.log(that.$refs.aa.innerText); //that.$refs.aa获取指定DOM，输出：原始值
+        // }
+        testClick: function () {
+          let that = this;
+          that.testMsg = "修改后的值";
+          this.$nextTick(function () {
+            console.log(this.$refs.aa.innerText); //输出：修改后的值
+          });
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
